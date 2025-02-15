@@ -1,4 +1,4 @@
-document.getElementById('employeeRegisterForm').addEventListener('submit', function(event) {
+document.getElementById('studentRegistrationForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
   const formData = new FormData(this);
@@ -7,7 +7,7 @@ document.getElementById('employeeRegisterForm').addEventListener('submit', funct
     data[key] = value;
   });
 
-  fetch('/register', {
+  fetch('/register-student', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -16,10 +16,10 @@ document.getElementById('employeeRegisterForm').addEventListener('submit', funct
   })
   .then(response => response.text())
   .then(message => {
-    document.getElementById('employeeInfo').innerText = message;
+    alert(message);
   })
   .catch(error => {
     console.error('Error:', error);
-    document.getElementById('employeeInfo').innerText = 'Error registrando empleado';
+    alert('Error registrando alumno');
   });
 });

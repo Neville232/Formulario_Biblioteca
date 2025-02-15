@@ -1,0 +1,4 @@
+git remote -v
+git remote remove origin
+git remote add origin https://github.com/Neville232/Formulario_Biblioteca.git
+git push -u origin main
