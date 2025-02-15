@@ -1,0 +1,16 @@
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "description": "A simple user registration application using Node.js, Express, and MySQL.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "dotenv": "^10.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
