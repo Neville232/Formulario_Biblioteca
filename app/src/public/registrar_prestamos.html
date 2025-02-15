@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Préstamos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Préstamo</h1>
+        <form id="loanRegistrationForm">
+            <div class="form-group">
+                <label for="rfid">RFID del Alumno:</label>
+                <input type="text" id="rfid" name="rfid" required>
+            </div>
+            <div class="form-group">
+                <label for="libro_id">ID del Libro:</label>
+                <input type="number" id="libro_id" name="libro_id" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha_prestamo">Fecha de Préstamo:</label>
+                <input type="date" id="fecha_prestamo" name="fecha_prestamo" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha_devolucion">Fecha de Devolución:</label>
+                <input type="date" id="fecha_devolucion" name="fecha_devolucion">
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+        <div id="loanInfo"></div>
+    </div>
+    <script src="js/registrar_prestamos.js"></script>
+</body>
+</html>

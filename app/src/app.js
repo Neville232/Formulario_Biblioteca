@@ -1,4 +1,3 @@
-// filepath: /c:/Users/Nelvinson/Documents/3_PROGRAMACION/Formulario - DB - MySQL/app/src/app.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -85,6 +84,35 @@ app.post('/register-book', (req, res) => {
       return;
     }
     res.send('Libro registrado exitosamente');
+  });
+});
+
+app.post('/register-loan', (req, res) => {
+  const { rfid, libro_id, fecha_prestamo, fecha_devolucion } = req.body;
+
+  const getAlumnoIdQuery = 'SELECT id FROM alumnos WHERE rfid = ?';
+  db.query(getAlumnoIdQuery, [rfid], (err, results) => {
+    if (err) {
+      console.error('Error fetching alumno ID:', err);
+      res.status(500).send('Error fetching alumno ID');
+      return;
+    }
+
+    if (results.length === 0) {
+      res.status(404).send('Alumno no encontrado');
+      return;
+    }
+
+    const alumno_id = results[0].id;
+    const insertQuery = 'INSERT INTO prestamos (alumno_id, libro_id, fecha_prestamo, fecha_devolucion) VALUES (?, ?, ?, ?)';
+    db.query(insertQuery, [alumno_id, libro_id, fecha_prestamo, fecha_devolucion], (err, result) => {
+      if (err) {
+        console.error('Error inserting loan data:', err);
+        res.status(500).send('Error inserting loan data');
+        return;
+      }
+      res.send('Préstamo registrado exitosamente');
+    });
   });
 });
 
