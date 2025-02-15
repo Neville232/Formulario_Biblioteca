@@ -74,6 +74,20 @@ app.post('/register-student', (req, res) => {
   });
 });
 
+app.post('/register-book', (req, res) => {
+  const { titulo, autor, cota, edicion, publicacion, ejemplar } = req.body;
+
+  const insertQuery = 'INSERT INTO libros (titulo, autor, cota, edicion, publicacion, ejemplar) VALUES (?, ?, ?, ?, ?, ?)';
+  db.query(insertQuery, [titulo, autor, cota, edicion, publicacion, ejemplar], (err, result) => {
+    if (err) {
+      console.error('Error inserting data:', err);
+      res.status(500).send('Error inserting data');
+      return;
+    }
+    res.send('Libro registrado exitosamente');
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
