@@ -64,3 +64,31 @@ button {
     width: 100%;
     margin-bottom: 10px;
 }
+
+/* Estilos para las tarjetas (cards) */
+.card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    flex: 1 1 calc(20% - 20px); /* 5 tarjetas por fila */
+    box-sizing: border-box;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.card p {
+    color: #666;
+}
+
+/* Contenedor de tarjetas */
+#loanCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

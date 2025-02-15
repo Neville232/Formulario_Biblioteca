@@ -116,6 +116,23 @@ app.post('/register-loan', (req, res) => {
   });
 });
 
+app.get('/loans', (req, res) => {
+  const query = `
+    SELECT a.nombres, a.apellidos, a.correo, a.telefono, a.rfid, l.titulo, l.autor, l.cota, l.edicion, l.publicacion, l.ejemplar, p.fecha_prestamo, p.fecha_devolucion
+    FROM prestamos p
+    JOIN alumnos a ON p.alumno_id = a.id
+    JOIN libros l ON p.libro_id = l.id
+  `;
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching loans:', err);
+      res.status(500).send('Error fetching loans');
+      return;
+    }
+    res.json(results);
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

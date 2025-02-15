@@ -5,5 +5,5 @@ git push -u origin main
 
 git status
 git add .
-git commit -m "Agregar formulario de regidtro de prestamos"
+git commit -m "Se agrego la funcion de ver las cards de los alumnos con prestamos activos"
 git push origin main
